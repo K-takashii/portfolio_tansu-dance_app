@@ -1,24 +1,44 @@
-# README
+# <ここにアプリ名を入力>
+ダンス・タンス・ダンス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+皆さんは、ショッピング中に服屋の前を通ったら、何を買うでもないけど服屋をみて回る時ありませんか？
+そんな時、突然「この服欲しい！」と思っても家に似たような服、同じような色があったような気がするなぁ...と確認できず断念した経験もあると思います。
+そんな時、スマホひとつで家にある服を確認出来たら便利！！
+また、服のしまっている場所も記載できるため、探す手間も省けます！
 
-Things you may want to cover:
+### サイトテーマ
+これは自分の持っている服やパンツのプロフィールを作るアプリケーションです。
+写真を載せることで「自分はこんな服を持っていたんだ」「この服持ってるならこのパンツと色合いも合うから買っちゃおう！」と有意義に買い物をすることができます！
+服をどこにしまったかわからず、いろんな場所を探すこともあると思います。そんな時はメモ機能を使うことで、すぐに目当ての服を見つけ時間に余裕を持っていでかけできるでしょう！
+また、サイズやブランド、シーズンなどの設定をすることで、再度似たような服やズボンを買いたい際の参考にもなるため、便利な機能となっています
 
-* Ruby version
+### テーマを選んだ理由
+このテーマを選んだ理由としては、服の衝動買いをしてしまう癖があり、似たような服やパンツが増え、着る機会の少ない服がだんだんと増えていってしまいました。
+そこでこのような服管理アプリを作ることで、
+「トップスがこのくらい持ってるから買うのをやめよう」だったり、
+「このTシャツとだったらこのパンツと合うから買おう」など買い物をする際に
+あったらいいなを実現できると思い選びました。
 
-* System dependencies
+### ターゲットユーザ
+若者をターゲット
 
-* Configuration
+### 主な利用シーン
+服屋での買い物や服の整頓時に使用
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1WxwBy5KCzBmZ6OJIWlJQ3MvMRHZKXLNrL7OYjggLYdo/edit#gid=0>
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- 使用するイラスト：https://loosedrawing.com/?sf_paged=4
+- アイコン：http://flat-icon-design.com/
