@@ -39,6 +39,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -68,15 +71,11 @@ group :production do
 end
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'refile",require:"refile/rails',github'manfe/refile'
-gem 'refile-mini_magick'
+# gem 'refile",require:"refile/rails',github'manfe/refile'
+# gem 'refile'
+# gem 'refile-mini_magick'
 gem 'bootstrap','~>4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass','~>5.13'
-gem 'pry-byebug', group: :development
-group :development, :test do
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-end
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'rubocop', require: false
+gem 'rubocop'
