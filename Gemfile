@@ -62,9 +62,21 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-
 gem 'dotenv-rails'
-
 group :production do
   gem 'mysql2'
 end
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'refile",require:"refile/rails',github'manfe/refile'
+gem 'refile-mini_magick'
+gem 'bootstrap','~>4.5'
+gem 'jquery-rails'
+gem 'font-awesome-sass','~>5.13'
+gem 'pry-byebug', group: :development
+group :development, :test do
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+end
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'rubocop', require: false
