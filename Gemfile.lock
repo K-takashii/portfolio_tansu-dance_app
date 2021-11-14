@@ -141,11 +141,13 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (2.99.3)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     mysql2 (0.5.3)
+    netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -196,10 +198,15 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    refile (0.3.0)
+      rest-client (~> 1.7.2)
     regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rest-client (1.7.3)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rexml (3.2.5)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
@@ -314,6 +321,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 3.11)
   rails (~> 5.2.5)
+  refile
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
