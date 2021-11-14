@@ -1,0 +1,39 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+  @import "bootstrap";
+  @import 'font-awesome-sprockets';
+  @import 'font-awesome';
+
+  body{
+    background-image: url(brack.png);
+    background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+.main {
+  width: 840px; /* 横幅840px */
+  display: flex; /* Flexboxの利用 */
+  justify-content: center; /* 要素の横並び・中央寄せ */
+  margin: 0 auto;
+}
+
+  header,footer,div.collapse {
+    font-family: 'Rampart One', cursive;
+  }
+
+  body{
+    font-family:"メイリオ", "Meiryo", sans-serif,"A1ゴシック M","A1 Gothic M","ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","Hiragino Sans","游ゴシック Medium","YuGothic","YuGothicM";
+  }
