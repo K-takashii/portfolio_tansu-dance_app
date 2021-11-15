@@ -8,60 +8,33 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10">
-      <table class="table table-noborder">
         <%= form_with model:@clothe, local:true do |f| %>
-          <tbody>
-            <tr>
-              <td>登録したい服を選択</td>
-              <td>
+              登録したい服を選択
                 <div class="img_field">
                   <%= f.attachment_field :image, class:"form-control-file user_image",class:"ml-5" %>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td>・服の名前</td>
-              <td>
+              ・服の名前
                 <div class="field">
                   <%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-5" %>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td>・購入した店の名前</td>
-              <td>
+              ・購入した店の名前
                 <div class="field">
                   <%= f.text_field :store_name, :size=>"30", autofocus: true, placeholder: "購入した店の名前",class:"ml-5" %>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td>・サイズ</td>
-              <td>
+              ・サイズ
                 <div class="field clothe-edit-size">
                   <%= f.select :clothe, [["SS", "SS"], ["S", "S"], ["M", "M"], ["L", "L"],["LL", "LL"]], include_blank: "選択して下さい" ,class:"ml-5"%>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td>・タグ</td>
-              <td>
+              ・カテゴリー
+              <%=f.collection_select(:category_id, @categories, :id, :name)%>
+              ・タグ
                 <div class="field">
                   <%= f.text_field :tag_ids, :size=>"30", id:'tag_ids', placeholder: "複数つけるには','で区切ってください。" ,class:"ml-5" %>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td>・メモ</td>
-              <td>
+              ・メモ
                 <div class="field">
                   <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-5"  %>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
                 <div class="row">
                   <div class="col-md-1"></div>
                   <div class="col-md-7">
@@ -69,9 +42,6 @@
                   </div>
                   <div class="col-md-4"></div>
                 </div>
-              </td>
-            </tr>
-          </tbody>
         <% end %>
       </table>
     </div>

@@ -1,0 +1,44 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <table class="table table table-bordered">
+        <thead>
+         <tr>
+           <th><div class="text-center font-weight-bold">カテゴリー</div></th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <% @categories.each do |category|%>
+              <%= category.clothes.count %>
+              <% end %>
+              トップス<br>
+              アウター<br>
+              ボトムス<br>
+            </th>
+          </tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>全アイテム</h2><br>
+      <div class="row">
+        <% @clothes.each do |clothe| %>
+          <div class="box" style="float:left; margin-right:10px;">
+            <%= link_to clothe_path(clothe.id) do %>
+              <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "bottoms.png" %><br>
+            <% end %>
+            <p><%#= clothe.tags %></p>
+          </div>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,6 +18,7 @@ class ClothesController < ApplicationController
 
   def create
     clothe = Clothe.new(clothe_params)
+    clothe.user_id = current_user.id
     clothe.save
     redirect_to clothes_path(clothe.id)
   end
