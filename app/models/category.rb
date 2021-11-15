@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
   
-  belongs_to :clothe
+  has_many :clothes
   
 end

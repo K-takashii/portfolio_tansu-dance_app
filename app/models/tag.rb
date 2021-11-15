@@ -1,3 +1,5 @@
 class Tag < ApplicationRecord
-  belongs_to :tag_map
+  has_many   :tag_maps, dependent: :destroy
+  has_many   :clothes, through: :tag_maps
+  validates :name, uniqueness: true
 end

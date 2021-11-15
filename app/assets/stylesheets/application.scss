@@ -17,19 +17,6 @@
   @import 'font-awesome-sprockets';
   @import 'font-awesome';
 
-  body{
-    background-image: url(brack.png);
-    background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
-    background-position: center; /* 背景画像を中央に配置 */
-}
-
-.main {
-  width: 840px; /* 横幅840px */
-  display: flex; /* Flexboxの利用 */
-  justify-content: center; /* 要素の横並び・中央寄せ */
-  margin: 0 auto;
-}
-
   header,footer,div.collapse {
     font-family: 'Rampart One', cursive;
   }
@@ -37,3 +24,73 @@
   body{
     font-family:"メイリオ", "Meiryo", sans-serif,"A1ゴシック M","A1 Gothic M","ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","Hiragino Sans","游ゴシック Medium","YuGothic","YuGothicM";
   }
+
+.table-noborder td {
+  border-top: 0;
+}
+
+ td {white-space: nowrap;}
+
+// header,footer.col-md-2{
+  // background-color: #007394;
+// }
+
+// header.a,header.ul{
+  // background-color: #000;
+// }
+
+.title {
+  margin-left: 30px;
+  text-align: center;
+  background-color: #DDDDDD;
+  padding: 0.5% 2% 0.5% 2%;
+  }
+
+.user-new-sub {
+  margin-left: 70px;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.user-already {
+  margin-left: 30px;
+  text-align: center;
+  background-color: #DDDDDD;
+  }
+
+.user-login-link {
+  margin-left: 55px;
+  font-size: 18px;
+}
+
+.user-sign-up {
+  font-size: 20px;
+  font-weight: bold;
+  width: 70%;
+  height: 30%;
+  padding: 0
+}
+
+.user-session-form{
+  width: 70%;
+}
+.user-session-label{
+  width: 20%;
+}
+
+.user-login{
+  fontsize: 16px;
+  font-weight: bold;
+  width: 30%;
+}
+
+.user-session-link-title {
+  margin-left: 50px;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.user-session-link {
+  marfin-left: 55px;
+  text-align: center;
+}

@@ -1,5 +1,9 @@
 class Clothe < ApplicationRecord
-  has_many :categories, dependent: :destroy
-  has_many :users, dependent: :destroy  
-  belongs_to :tag_map
+  belongs_to :category, dependent: :destroy
+  belongs_to :user, dependent: :destroy
+  has_many  :tag_maps, dependent: :destroy
+  has_many  :tags, through: :tag_maps
+
+  attachment :image
+
 end

@@ -1,26 +1,68 @@
-<h2>Log in</h2>
-<!--ログイン画面-->
-<%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="title">ログイン</h4>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="col-md-9"></div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <br>
+  <!--会員の方-->
+  <div class="row">
+    <div class="col-md-5">
+      <h5 class="user-new-sub">会員の方はこちらからログイン</h5>
+    </div>
+    <div class="col-md-7"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 "></div>
+    <div class="col-md-10 mx-auto">
+      <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+        <table class="table table-noborder">
+          <tbody>
+            <!--メールアドレス入力-->
+            <tr>
+              <td class="user-session-label"><%= f.label :email, "メールアドレス" %></td>
+              <td><%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", class:"user-session-form" %></td>
+            </tr>
+            <!--パスワード入力-->
+            <tr>
+              <td class="user-session-label"><%= f.label :password, "パスワード" %></td>
+              <td><%= f.password_field :password, class:"user-session-form" %></td>
+            </tr>
+
+            <tr>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td class="user-button">
+                <div class="actions">
+                  <%= f.submit "ログイン", class:"btn btn-primary user-login" %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+<!--非会員の方-->
+  <div class="row">
+    <div class="col-md-4">
+      <h5 class="user-session-link-title">会員登録がお済でない方</h5>
+    </div>
+    <div class="col-md-8"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 user-session-link">
+      <%= link_to "こちら", new_user_registration_path %> から新規登録してください。
+    </div>
+  </div>
+</div>
+
