@@ -9,39 +9,41 @@
     <div class="col-md-2"></div>
     <div class="col-md-10">
         <%= form_with model:@clothe, local:true do |f| %>
-              登録したい服を選択
-                <div class="img_field">
-                  <%= f.attachment_field :image, class:"form-control-file user_image",class:"ml-5" %>
-                </div>
-              ・服の名前
-                <div class="field">
-                  <%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-5" %>
-                </div>
-              ・購入した店の名前
-                <div class="field">
-                  <%= f.text_field :store_name, :size=>"30", autofocus: true, placeholder: "購入した店の名前",class:"ml-5" %>
-                </div>
-              ・サイズ
-                <div class="field clothe-edit-size">
-                  <%= f.select :clothe, [["SS", "SS"], ["S", "S"], ["M", "M"], ["L", "L"],["LL", "LL"]], include_blank: "選択して下さい" ,class:"ml-5"%>
-                </div>
-              ・カテゴリー
-              <%=f.collection_select(:category_id, @categories, :id, :name)%>
-              ・タグ
-                <div class="field">
-                  <%= f.text_field :tag_ids, :size=>"30", id:'tag_ids', placeholder: "複数つけるには','で区切ってください。" ,class:"ml-5" %>
-                </div>
-              ・メモ
-                <div class="field">
-                  <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-5"  %>
-                </div>
-                <div class="row">
-                  <div class="col-md-1"></div>
-                  <div class="col-md-7">
-                    <%= f.submit "登録", class:"mx-5  btn btn-success",:size=>"30" %>
-                  </div>
-                  <div class="col-md-4"></div>
-                </div>
+          <div class="img_field">
+            登録したい服を選択
+            <%= f.attachment_field :image, class:"form-control-file user_image",class:"ml-5" %>
+          </div>
+          <div class="field">
+            ・服の名前
+            <%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-5" %>
+          </div>
+          <div class="field">
+            ・購入した店の名前
+            <%= f.text_field :store_name, :size=>"30", autofocus: true, placeholder: "購入した店の名前",class:"ml-5" %>
+          </div>
+          <div class="field clothe-edit-size">
+            ・サイズ
+            <%= f.collection_select :size_id, @sizes, :id, :name, include_blank: "選択して下さい" %>
+          </div>
+          <div class="field">
+            ・カテゴリー
+            <%=f.collection_select :category_id, @categories, :id, :name, include_blank: "選択して下さい" %>
+          </div>
+          <div class="field">
+            ・タグ
+            <%= f.text_field :tag_ids, :size=>"30", id:'tag_ids', placeholder: "複数つけるには','で区切ってください。" ,class:"ml-5" %>
+          </div>
+          <div class="field">
+            ・メモ
+            <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-5"  %>
+          </div>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+              <%= f.submit "登録", class:"mx-5  btn btn-success",:size=>"30" %>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
         <% end %>
       </table>
     </div>

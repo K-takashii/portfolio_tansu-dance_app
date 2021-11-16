@@ -1,0 +1,15 @@
+<div class="col-md-8 offset-md-1">
+  <h2><%= @category_title %></h2><br>
+  <div class="row">
+    <% clothes.each do |clothe| %>
+      <div class="box" style="float:left; margin-right:10px;">
+        <%= link_to clothe_path(clothe.id) do %>
+          <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "bottoms.png" %><br>
+        <% end %>
+        <% clothe.tags.each do |tag| %>
+          <p><%= tag.name %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

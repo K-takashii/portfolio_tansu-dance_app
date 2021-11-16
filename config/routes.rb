@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :users, only:[:index,:show, :edit, :update]
   resources :clothes 
   resources :tags
-  resources :categories, only:[:show]
+  resources :categories, only:[:index,:show]
 
 end

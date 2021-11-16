@@ -8,17 +8,65 @@
           <tbody>
             <tr>
               <% @clothes.each do |clothe| %>
-              <td>
-                 <%= attachment_image_tag clothe, :image, size: "150x150",  fallback: "nagano-cake-logo.png" %>
-                </br>
-                <%= link_to clothe_path(clothe) do %>
-                  <%= clothe.name %>
-                <% end %>
-              </td>
+              <div id="dragarea">
+                <td>
+                  <%= link_to clothe_path(clothe) do %>
+                    <%= attachment_image_tag clothe, :image, size: "160x200" %>
+                    <% clothe.tags.each do |tag| %>
+                      <%= tag.name %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </div>
               <% end %>
+              <div class="dp" id="drop1"></div>
+              <div class="dp" id="drop2"></div>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
+
+<script>
+//imgタグ要素を全て取得する
+var elm = document.getElementsByTagName("img");
+
+//全imgタグにdragstartイベントを追加する
+for ( var i=0 ; i < elm.length ; i++ )
+{
+  elm[i].addEventListener("dragstart", function(evt){
+    evt.dataTransfer.setData("text/plain",evt.target.id);
+    evt.stopPropagation();
+  },false);
+}
+
+//クラス名「dp」を持つdivタグを全て取得する
+var droparea = document.querySelectorAll("div.dp");
+
+//全てのドロップ要素にdropイベントを追加する
+for ( var i=0; i < droparea.length ; i++ )
+{
+  droparea[i].addEventListener("drop", function(evt){
+    var id = evt.dataTransfer.getData( "text/plain" );
+    var obj1 = document.getElementById( id );
+
+    //ドロップされるdivタグをgetElementById()で取得し直す
+    var obj2 = document.getElementById( evt.target.id );
+
+    if( obj1 )
+    {
+      obj2.appendChild( obj1 );
+    }
+    evt.preventDefault();
+  },false);
+
+  //２つのイベントでデフォルト動作を抑制する
+  droparea[i].addEventListener( "dragenter" , function(evt){
+    evt.preventDefault();
+  }, false );
+  droparea[i].addEventListener( "dragover" , function(evt){
+    evt.preventDefault();
+  }, false );
+}
+</script>

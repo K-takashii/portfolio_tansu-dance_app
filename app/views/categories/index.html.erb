@@ -1,0 +1,30 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <table class="table table table-bordered">
+      <!--div↑-->
+        <thead>
+         <tr>
+           <th><div class="text-center font-weight-bold">カテゴリー</div></th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <% @categories.each do |category|%>
+                <%= category.name %>
+                (<%= link_to category.clothes.count, category_path(category) %>)<br>
+              <% end %>
+            </th>
+          </tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
+    <%= render "category_view", clothes: @clothes %>
+  </div>
+</div>

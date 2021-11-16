@@ -10,3 +10,8 @@ categories = ['トップス','アウター', 'ボトムス']
 categories.each do |category|
   Category.find_or_create_by(name: category)
 end
+
+sizes = ['SS','S','M','L','LL']
+sizes.each do |size|
+  Size.find_or_create_by(name: size)
+end

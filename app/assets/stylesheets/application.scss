@@ -94,3 +94,34 @@
   marfin-left: 55px;
   text-align: center;
 }
+
+.tab{
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+}
+
+div#dragarea{
+  width:100%; height:100px;
+  background-color:#80ffff;
+}
+
+div.dp{
+  width:50%;
+  height:100px;
+}
+
+div#drop1{
+  background-color:#ffff80;
+  float:left;
+}
+
+div#drop2{
+  margin-left:50%;
+  background-color:#ff80ff;
+  }
+div#drop2:after{
+  content:"";
+  display:block;
+  clear:left;
+}

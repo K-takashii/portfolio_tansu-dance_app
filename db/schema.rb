@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_123848) do
+ActiveRecord::Schema.define(version: 2021_11_16_142131) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -23,12 +23,14 @@ ActiveRecord::Schema.define(version: 2021_11_15_123848) do
     t.integer "user_id"
     t.string "name"
     t.string "store_name"
-    t.string "size"
+    t.integer "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_id"
     t.string "introduction"
     t.integer "category_id"
+    t.integer "size_id"
+    t.index ["size_id"], name: "index_clothes_on_size_id"
   end
 
   create_table "sizes", force: :cascade do |t|
@@ -38,12 +40,12 @@ ActiveRecord::Schema.define(version: 2021_11_15_123848) do
   end
 
   create_table "tag_maps", force: :cascade do |t|
-    t.integer "micropost_id"
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["micropost_id", "tag_id"], name: "index_tag_maps_on_micropost_id_and_tag_id", unique: true
-    t.index ["micropost_id"], name: "index_tag_maps_on_micropost_id"
+    t.integer "clothe_id"
+    t.index ["clothe_id", "tag_id"], name: "index_tag_maps_on_clothe_id_and_tag_id", unique: true
+    t.index ["clothe_id"], name: "index_tag_maps_on_clothe_id"
     t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
   end
 
