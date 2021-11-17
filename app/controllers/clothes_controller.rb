@@ -21,14 +21,14 @@ class ClothesController < ApplicationController
   end
 
   def create
-    clothe = current_user.clothes.new(clothe_params)
-    tag_list = params[:clothe][:tag_name].split(nil)
+    clothe = current_user.clothes.build(clothe_params)
+    tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split(',')
     clothe.user_id = current_user.id
     if clothe.save
-      clothe.save_tag(tag_list)
-      redirect_back(fallback_location: root_path)
-    else
+      clothe.save_clothe(tag_list)
       redirect_to clothes_path(clothe.id)
+    else
+      redirect_back(fallback_location: root_path)
     end
 
     # このままではタグを保存して紐づかせる処理が無いので実装する必要がある
@@ -51,7 +51,6 @@ class ClothesController < ApplicationController
   private
   def clothe_params
     params.require(:clothe).permit(
-
     :category_id,
     :name,
     :introduction,

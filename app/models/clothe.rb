@@ -7,18 +7,19 @@ class Clothe < ApplicationRecord
 
   attachment :image
 
-  def save_tag(sent_tags)
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-    old_tags = current_tags - sent_tags
-    new_tags = sent_tags - current_tags
+  def save_clothe(tag_list)
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    old_tags = current_tags - tag_list
+    new_tags = tag_list - current_tags
 
     old_tags.each do |old|
-      self.clothe_tags.delete ClotheTag.find_by(tag_name: old)
+      self.tag_maps.delete Tag.find_by(name: old)
     end
 
     new_tags.each do |new|
-      new_clothe_tag = ClotheTag.find_or_create_by(tag_name: new)
-      self.clothe_tags << new_clothe_tag
+      new_clothe_tag = Tag.find_or_create_by(name: new)
+      new_tag_map = TagMap.new(clothe_id: self.id,tag_id:new_clothe_tag.id)
+      self.tag_maps << new_tag_map
     end
   end
 end

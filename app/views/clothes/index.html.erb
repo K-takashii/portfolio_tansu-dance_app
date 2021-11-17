@@ -12,9 +12,10 @@
                 <td>
                   <%= link_to clothe_path(clothe) do %>
                     <%= attachment_image_tag clothe, :image, size: "160x200" %>
-                    <% clothe.tags.each do |tag| %>
-                      <%= tag.name %>
-                    <% end %>
+                  <% end %>
+                  <% clothe.tags.each do |tag| %>
+                  <%#= link_to do %>
+                    <%= tag.name %>
                   <% end %>
                 </td>
               </div>
