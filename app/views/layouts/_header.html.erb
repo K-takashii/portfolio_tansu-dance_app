@@ -1,38 +1,39 @@
-<header class="shadow-sm">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand p-3" href="/clothes"><strong>タンス</strong> with me</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to '服の新規登録', new_clothe_path, class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '服一覧', categories_path, class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'マイページ', users_path(current_user.id), class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to "About", homes_about_path , class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-        </li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+
+<nav class="navbar navbar-light navbar-fixed-top">
+  <a class="navbar-brand p-3" href="/clothes"><strong>タンス</strong> with me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to '服の新規登録', new_clothe_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to '服一覧', categories_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "About", homes_about_path , class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+      </li>
+      <% end %>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="タグ検索">
+		  <button "btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+		</form>
+  </div>
+</nav>

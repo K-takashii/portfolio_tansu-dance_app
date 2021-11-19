@@ -4,10 +4,11 @@
     <% clothes.each do |clothe| %>
       <div class="box" style="float:left; margin-right:10px;">
         <%= link_to clothe_path(clothe.id) do %>
-          <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "bottoms.png" %><br>
+          <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "no_image" %><br>
         <% end %>
         <% clothe.tags.each do |tag| %>
-          <p><%= tag.name %></p>
+        <%#= link_to do %>
+          <%= tag.name %><br>
         <% end %>
       </div>
     <% end %>

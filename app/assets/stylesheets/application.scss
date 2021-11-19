@@ -17,19 +17,31 @@
   @import 'font-awesome-sprockets';
   @import 'font-awesome';
 
-  header,footer,div.collapse {
+  header,footer {
     font-family: 'Rampart One', cursive;
+    background-color: #89c7de;
+    color: #fff;
   }
 
   body{
     font-family:"メイリオ", "Meiryo", sans-serif,"A1ゴシック M","A1 Gothic M","ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","Hiragino Sans","游ゴシック Medium","YuGothic","YuGothicM";
+    margin: 0px;
+    overflow: hidden;
   }
 
-.table-noborder td {
-  border-top: 0;
-}
+  .table-noborder td {
+    border-top: 0;
+  }
 
- td {white-space: nowrap;}
+
+  td {
+    white-space: nowrap;
+  }
+
+  .col-md-3{
+    line-height: 3.5rem;
+  }
+
 
 // header,footer.col-md-2{
   // background-color: #007394;
@@ -102,22 +114,22 @@
 }
 
 div#dragarea{
-  width:100%; height:100px;
-  background-color:#80ffff;
+  width:100%;
+  height:80px;
+  border-top: 1px solid black;
 }
 
 div.dp{
-  width:50%;
-  height:100px;
+  width:40%;
+  height:150px;
 }
 
 div#drop1{
   background-color:#ffff80;
-  float:left;
 }
 
 div#drop2{
-  margin-left:50%;
+  float:left;
   background-color:#ff80ff;
   }
 div#drop2:after{

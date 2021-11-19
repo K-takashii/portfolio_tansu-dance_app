@@ -22,7 +22,7 @@ class ClothesController < ApplicationController
 
   def create
     clothe = current_user.clothes.build(clothe_params)
-    tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split(',')
+    tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split('、')
     clothe.user_id = current_user.id
     if clothe.save
       clothe.save_clothe(tag_list)
@@ -30,11 +30,6 @@ class ClothesController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-
-    # このままではタグを保存して紐づかせる処理が無いので実装する必要がある
-    # 1. にゅうりょく　されたタグを区切り文字で分解しよう
-    # 2. モデルメソッドでタグを保存して紐づける処理を実装仕様
-    # 3. clothe.2で実装したメソッド(tag_list)で処理を呼び出して実行させよう
   end
 
   def edit
@@ -46,6 +41,12 @@ class ClothesController < ApplicationController
     clothe = Clothe.new(clothe_params)
     clothe.update(clothe_params)
     redirect_to clothe_path(cloth.id)
+  end
+  
+  def seach
+    @tag_list = Tag.all
+    @tag = Tag.find(params[tag_ids])
+    @clothes = @tag.clothes.all
   end
 
   private

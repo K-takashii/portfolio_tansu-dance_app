@@ -15,10 +15,14 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <main>
+    <header class="sticky-top">
+      <%= render 'layouts/header' %>
+    </header>
+    <main class="mb-5">
       <%= yield %>
     </main>
-    <%= render 'layouts/footer' %>
+    <footer class="fixed-bottom">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <h4 class="mypage-title">会員情報編集</h4>
+    </div>
+    <div class="col-md-7"></div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-11">
+      <%= form_with model: @user, url: user_path(current_user), local: true do |f| %>
+        <table class="table table-noborder mypage-edit-table">
+          <tbody>
+            <!--ニックネーム入力-->
+            <tr>
+              <td class="mypage-table-head">ニックネーム</td>
+              <td class="mypage-table-name"><%= f.text_field :name, autofocus: true %></td>
+            </tr>
+            <!--メールアドレス入力-->
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= f.email_field :email %></td>
+            </tr>
+            <!--パスワード入力-->
+            <tr>
+              <td>パスワード</td>
+              <td><%= f.password_field :password %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "保存", class:"btn btn-success mypage-edit-submit" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

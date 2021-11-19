@@ -7,46 +7,50 @@
   </div>
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-10">
-        <%= form_with model:@clothe, local:true do |f| %>
-          <div class="img_field">
-            <%= image_tag attachment_url(@clothe, :image, :fill, 300, 300, format: "jpg") %>
-          </div>
-          <div class="field">
-            ・服の名前
-            <%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-5" %>
-          </div>
-          <div class="field">
-            ・購入した店の名前
-            <%= f.text_field :store_name, :size=>"30", autofocus: true, placeholder: "購入した店の名前",class:"ml-5" %>
-          </div>
-          <div class="field clothe-edit-size">
-            ・サイズ
-            <%= @clothe.size.name %>
-          </div>
-          <div class="field">
-            ・カテゴリー
-            <%= @clothe.category.name %>
-          </div>
-          <div class="field">
-            ・タグ
-            <% @clothe.tag_maps.each do |tag| %>
-              <%= tag.tag.name %>
-            <% end %>
-          </div>
-          <div class="field">
-            ・メモ
-            <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-5"  %>
-          </div>
-          <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-7">
-              <%= f.submit "登録", class:"mx-5  btn btn-success",:size=>"30" %>
-            </div>
-            <div class="col-md-4"></div>
-          </div>
-        <% end %>
-      </table>
+    <div class="col-md-3">
+      <%= form_with model:@clothe, local:true do |f| %>
+        <div class="img_field">
+          <%= image_tag attachment_url(@clothe, :image, :fill, 270, 300, format: "jpg"), size:'270x300' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <%= form_with model:@clothe, local:true do |f| %>
+        <div class="field">
+          ・服の名前:
+           <%= @clothe.name %>
+        </div>
+        <div class="field">
+          ・購入した店の名前:
+          <%= @clothe.store_name %>
+        </div>
+        <div class="field clothe-edit-size">
+          ・サイズ:
+          <%= @clothe.size.name %>
+        </div>
+        <div class="field">
+          ・カテゴリー:
+          <%= @clothe.category.name %>
+        </div>
+        <div class="field">
+          ・タグ:
+          <% @clothe.tag_maps.each do |tag| %>
+            <%= tag.tag.name %>
+          <% end %>
+        </div>
+        <div class="field">
+          ・メモ<br>
+          <%= @clothe.introduction %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <%= form_with model:@clothe, local:true do |f| %>
+        <%= f.submit "登録", class:"mx-5  btn btn-success",:size=>"30" %>
+      <% end %>
     </div>
   </div>
 </div>

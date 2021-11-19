@@ -12,8 +12,8 @@
           <tr>
             <th>
               <% @categories.each do |category|%>
-                <%= category.name %>
-                (<%= link_to category.clothes.count, category_path(category) %>)<br>
+                <%= category.name %><br>
+                (<%= link_to category.clothes.count, category_path(category) %>)
               <% end %>
             </th>
           </tr>
