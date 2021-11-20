@@ -10,8 +10,18 @@ class ClothesController < ApplicationController
   end
 
   def index
+    if params[:search].present?
+      clothes = Clothe.clothes_serach(params[:search])
+    elsif params[:tag_id].present?
+      @tag = Tag.find(params[:tag_id])
+      clothes = @tag.clothes.order(created_at: :desc)
+    else
+      clothes = Clothe.all.order(created_at: :desc)
+    end
     @tag_list = Tag.all
-    @clothes = Clothe.all
+    @tops_clothes = Category.find(5).clothes
+    @outer_clothes = Category.find(7).clothes
+    @bottom_clothes = Category.find(8).clothes
     @clothe = current_user.clothes.new
   end
 
@@ -22,12 +32,14 @@ class ClothesController < ApplicationController
 
   def create
     clothe = current_user.clothes.build(clothe_params)
-    tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split('、')
+    tag_list = params[:clothe][:tag_ids].split(nil)
+    #clothe.image.attach(params[:clothe][:image])
     clothe.user_id = current_user.id
     if clothe.save
       clothe.save_clothe(tag_list)
       redirect_to clothes_path(clothe.id)
     else
+      flash.now[:alert] = '投稿に失敗しました'
       redirect_back(fallback_location: root_path)
     end
   end
@@ -42,7 +54,7 @@ class ClothesController < ApplicationController
     clothe.update(clothe_params)
     redirect_to clothe_path(cloth.id)
   end
-  
+
   def seach
     @tag_list = Tag.all
     @tag = Tag.find(params[tag_ids])

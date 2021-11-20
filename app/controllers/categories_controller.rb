@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
     @category_title = "全アイテム"
     @categories = Category.all
     @clothes = Clothe.all
+    @tag_list = Tag.all
   end
   def show
     @category = Category.find(params[:id])

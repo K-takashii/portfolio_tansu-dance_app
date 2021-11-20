@@ -1,16 +1,19 @@
-<div class="col-md-8 offset-md-1">
-  <h2><%= @category_title %></h2><br>
-  <div class="row">
-    <% clothes.each do |clothe| %>
-      <div class="box" style="float:left; margin-right:10px;">
-        <%= link_to clothe_path(clothe.id) do %>
-          <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "no_image" %><br>
-        <% end %>
+<h2 class="text-center" style="margin-bottom: 30px;"><%= @category_title %></h2>
+<div class="card-columns">
+<% clothes.each do |clothe| %>
+<div class="card">
+    <%= link_to clothe_path(clothe.id) do %>
+      <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "no_image" %><br>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">
         <% clothe.tags.each do |tag| %>
         <%#= link_to do %>
           <%= tag.name %><br>
         <% end %>
-      </div>
-    <% end %>
+      </p>
+    </div>
   </div>
-</div>
+<% end %>
+</end>
