@@ -6,9 +6,10 @@ class Clothe < ApplicationRecord
   has_many  :tags, through: :tag_maps
 
   attachment :image
+  
   def self.clothes_serach(search)
    Clothe.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
- end
+  end
 
   def save_clothe(tag_list)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?

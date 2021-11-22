@@ -9,20 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
 
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <header class="sticky-top">
-      <%= render 'layouts/header' %>
-    </header>
-    <main class="mb-5">
-      <%= yield %>
-    </main>
-    <footer class="fixed-bottom">
-      <%= render 'layouts/footer' %>
-    </footer>
+    <div class="d-flex flex-column" style="height: 100vh;">
+      <!--<header class="sticky-top">-->
+      <header class="">
+        <%= render 'layouts/header' %>
+      </header>
+      <main class="mb-5" style="flex: 1;">
+        <%= yield %>
+      </main>
+      <!--<footer class="fixed-bot">-->
+      <footer class="">
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
   </body>
 </html>

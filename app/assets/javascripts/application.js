@@ -15,6 +15,28 @@
 //= require bootstrap-sprockets
 
 //= require rails-ujs
+//= require jquery.jscroll
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// $(document).ready(function(){
+//   $('.your-class').slick({
+//     slidesToShow: 4,
+//     slidesToScroll: 4,
+//     dots: true,
+//     draggable: false
+//   });
+// });
+
+
+$(window).on('scroll', function() {
+  scrollHeight = $(document).height();
+  scrollPosition = $(window).height() + $(window).scrollTop();
+  if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+    $('.jscroll').jscroll({
+      contentSelector: '.scroll-list',
+      nextSelector: 'span.next:last a'
+    });
+  }
+});

@@ -1,19 +1,26 @@
 <h2 class="text-center" style="margin-bottom: 30px;"><%= @category_title %></h2>
 <div class="card-columns">
+   <div class="scroll-list jscroll">
 <% clothes.each do |clothe| %>
-<div class="card">
-    <%= link_to clothe_path(clothe.id) do %>
-      <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "no_image" %><br>
-    <% end %>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        <% clothe.tags.each do |tag| %>
-        <%#= link_to do %>
-          <%= tag.name %><br>
-        <% end %>
-      </p>
+<% pp clothe %>
+
+    <div class="card">
+      <%= link_to clothe_path(clothe.id) do %>
+        <%= attachment_image_tag clothe, :image, size: "120x170",  fallback: "no_image" %><br>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          <% clothe.tags.each do |tag| %>
+          <%#= link_to do %>
+            <%= tag.name %><br>
+          <% end %>
+        </p>
+      </div>
     </div>
-  </div>
+
 <% end %>
-</end>
+
+<%= paginate clothes %>
+</div>
+</div>

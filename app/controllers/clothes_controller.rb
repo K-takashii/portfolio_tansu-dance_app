@@ -11,12 +11,12 @@ class ClothesController < ApplicationController
 
   def index
     if params[:search].present?
-      clothes = Clothe.clothes_serach(params[:search])
+      @clothes = Clothe.clothes_serach(params[:search])
     elsif params[:tag_id].present?
       @tag = Tag.find(params[:tag_id])
-      clothes = @tag.clothes.order(created_at: :desc)
+      @clothes = @tag.clothes.order(created_at: :desc)
     else
-      clothes = Clothe.all.order(created_at: :desc)
+      @clothes = Clothe.all.order(created_at: :desc)
     end
     @tag_list = Tag.all
     @tops_clothes = Category.find(5).clothes
@@ -32,7 +32,7 @@ class ClothesController < ApplicationController
 
   def create
     clothe = current_user.clothes.build(clothe_params)
-    tag_list = params[:clothe][:tag_ids].split(nil)
+    tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split(',')
     #clothe.image.attach(params[:clothe][:image])
     clothe.user_id = current_user.id
     if clothe.save
