@@ -1,21 +1,29 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="tab">
-        <div class="text-center font-weight-bold">カテゴリー</div>
-          <div class="area">
-            <ul>
-              <% @categories.each do |category|%>
-                <li>
-                  <%= category.name %>
-                  (<%= link_to category.clothes.count, category_path(category) %>)<br>
-                </li>
-              <% end %>  
-            </ul>
-          </div>
-        </div>
+<div class="row">
+  <!-- 左画面 -->
+  <div class="col-sm-3 col-12" style="padding-top: 50px; padding-bottom: 50px;">
+    <div class="container">
+      <div id="category">
+        <div class="title">カテゴリー</div>
+        <% @categories.each do |category|%>
+          <%= category.name %>
+          (<%= link_to category.clothes.count, category_path(category) %>)<br>
+        <% end %>
       </div>
+      <div>
+        <form class="form-inline my-2 my-lg-0">
+    			<input name="serch_word" type="search" placeholder="タグ検索">
+    	    <button "btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+    		</form>
+  		  <% @tag_list.each do |list| %>
+    		  <%= link_to list.name, categories_path(tag_id: list.id), class: 'tag_list' %>
+  		  <% end %>
+      </div>
+    </div><!-- /container -->
+  </div>
+  <!-- 右画面  -->
+  <div class="col-sm-9 col-12">
+    <div class="container">
+      <%= render "category_view", clothes: @clothes %>
     </div>
-    <%= render "category_view", clothes: @clothes %>
   </div>
 </div>

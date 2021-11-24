@@ -3,10 +3,6 @@ class CategoriesController < ApplicationController
     pp params
     if params[:serch_word]
       @clothes = Clothe.left_joins(:tags).where("clothes.name like ? or tags.name like ?", "%#{params[:serch_word]}%", "%#{params[:serch_word]}%").page(params[:page]).per(9).distinct
-      # idが一致していてもしてなくてもleft_joinsはくっつける
-      # clotheモデルとtagsモデルをjoinすることで一度に検索できるようになる
-      # clotheモデルとtagsモデルの中から、whereの内容であるclothes.nameか
-
       @category_title = params[:serch_word]
       @categories = Category.all
       @tag_list = Tag.all
@@ -19,9 +15,18 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    @category_title = @category.name
-    @categories = Category.all
-    @clothes = Clothe.where("category_id=?", params[:id])
+    pp params
+    if params[:serch_word]
+      @clothes = Clothe.left_joins(:tags).where("clothes.name like ? or tags.name like ?", "%#{params[:serch_word]}%", "%#{params[:serch_word]}%").page(params[:page]).per(9).distinct
+      @category_title = params[:serch_word]
+      @categories = Category.all
+      @tag_list = Tag.all
+    else
+      @category = Category.find(params[:id])
+      @category_title = @category.name
+      @categories = Category.all
+      @clothes = Clothe.where(category_id: @category).page(params[:page]).per(9)
+      @tag_list = Tag.all
+    end
   end
 end
