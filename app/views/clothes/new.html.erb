@@ -1,49 +1,80 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-12">
       <h4 class="title">服の登録</h4>
     </div>
-    <div class="col-md-9"></div>
   </div>
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
+    <div class="col-md-12">
       <%= form_with model:@clothe, local:true do |f| %>
-        <div class="img_field">
-          登録したい服を選択
-          <%= f.attachment_field :image, class:"form-control-file user_image",class:"ml-5" %>
-        </div>
-        <div class="field">
-          ・服の名前
-          <%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-5" %>
-        </div>
-        <div class="field">
-          ・購入した店の名前
-          <%= f.text_field :store_name, :size=>"30", autofocus: true, placeholder: "購入した店の名前",class:"ml-5" %>
-        </div>
-        <div class="field clothe-edit-size">
-          ・サイズ
-          <%= f.collection_select :size_id, @sizes, :id, :name, include_blank: "選択して下さい" %>
-        </div>
-        <div class="field">
-          ・カテゴリー
-          <%=f.collection_select :category_id, @categories, :id, :name, include_blank: "選択して下さい" %>
-        </div>
-        <div class="field">
-          ・タグ
-          <%= f.text_field :tag_ids, :size=>"30", id:'tag_ids', placeholder: "複数つけるには','で区切ってください。" ,class:"ml-5" %>
-        </div>
-        <div class="field">
-          ・メモ
-          <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-5"  %>
-        </div>
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-7">
-            <%= f.submit "登録", class:"mx-5  btn btn-success",:size=>"30" %>
-          </div>
-          <div class="col-md-4"></div>
-        </div>
+        <table class="table table-noborder">
+          <tbody>
+            <tr>
+              <td>登録したい服を選択</td>
+              <td>
+                <div class="img_field">
+                  <%= f.attachment_field :image, class:"form-control-file user_image",class:"ml-5" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>・服の名前</td>
+              <td>
+                <div class="field">
+                  <%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-5" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>・購入した店の名前</td>
+              <td>
+                <div class="field">
+                  <%= f.text_field :store_name, :size=>"30", autofocus: true, placeholder: "購入した店の名前",class:"ml-5" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>・サイズ</td>
+              <td>
+                <div class="field clothe-edit-size" id="space">
+                  <%= f.collection_select :size_id, @sizes, :id, :name, include_blank: "選択して下さい" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>・カテゴリー</td>
+              <td>
+                <div class="field" id="space">
+                  <%=f.collection_select :category_id, @categories, :id, :name, include_blank: "選択して下さい" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>・タグ</td>
+              <td>
+                <div class="field">
+                   <%= f.text_field :tag_ids, :size=>"30", id:'tag_ids', placeholder: "複数つけるには','で区切ってください。" ,class:"ml-5" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>・メモ</td>
+              <td>
+                <div class="field">
+                   <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-5"  %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <div>
+                  <%= f.submit "登録", class:"mx-5  btn btn-success",:size=>"30" %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       <% end %>
     </div>
   </div>

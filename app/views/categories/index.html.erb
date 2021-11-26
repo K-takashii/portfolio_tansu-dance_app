@@ -1,9 +1,9 @@
 <div class="row">
   <!-- 左画面 -->
-  <div class="col-sm-3 col-12" style="padding-top: 50px; padding-bottom: 50px;">
+  <div class="col-sm-3 col-12" id="category_serch">
     <div class="container">
       <div id="category">
-        <div class="title">カテゴリー</div>
+        <div class="title-1">カテゴリー</div>
         <% @categories.each do |category|%>
           <%= category.name %>
           (<%= link_to category.clothes.count, category_path(category) %>)<br>
@@ -11,7 +11,7 @@
       </div>
       <div>
         <form class="form-inline my-2 my-lg-0">
-    			<input name="serch_word" type="search" placeholder="タグ検索">
+    			<input name="serch_word" type="search" placeholder="タグ検索"  class="form-size">
     	    <button "btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
     		</form>
     		  <% @tag_list.each do |list| %>

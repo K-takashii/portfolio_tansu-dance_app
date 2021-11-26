@@ -4,23 +4,24 @@
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
-    <div class="d-flex flex-column" style="height: 100vh;">
+    <div class="d-flex flex-column">
       <!--<header class="sticky-top">-->
       <header class="">
         <%= render 'layouts/header' %>
       </header>
-      <main class="mb-5" style="flex: 1;">
+      <main>
         <%= yield %>
       </main>
       <!--<footer class="fixed-bot">-->
