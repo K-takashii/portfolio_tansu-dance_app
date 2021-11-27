@@ -1,20 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      <h1>
-        welcome to <br>
-        <i class="fas fa-tshirt"></i></i><strong>タンス</strong> with me</h1>
-      <p>In  <i class="fas fa-tshirt"></i><strong>タンス</strong>, </p>
-      <p>you can share and exchange  your opinions , inpressions , and emotions</p>
-      <p> about various books!</p>
-      <div class="btn-wrapper col-10 mx-auto">
-        <div class="row">
-          <%= link_to "Log in", new_user_session_path, class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
-        </div>
-        <div class="row">
-          <%= link_to "Sign Up", new_user_registration_path ,class:"btn btn-success btn-sm btn-block sign_up" %>
-        </div>
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="text-center">
+        <h1>
+          <br>
+          ようこそ！<br>
+          <br>
+          <div class="d-flex justify-content-center">
+            <div class="top_image"><%= image_tag 'top-image1' %></div>
+            <div class="font">
+              <strong>タンス with me</strong>
+            </div>
+            <div class="top_image"><%= image_tag 'top-image2' %></div>
+          </div>
+        </h1>
+      <h3>
+        <br>
+        ここでは<br>
+        <br>
+        自分で買ったトップスやボトムスを<br>
+        <br>
+        自由に整理することができます！<br>
+        <br>
+        登録した服を使って<br>
+        <br>
+        コーディネートすることが出来ます！<br>
+        <br>
+      </h3>
       </div>
     </div>
+    <div class="col-3"></div>
   </div>
 </div>

@@ -1,4 +1,6 @@
 class ClothesController < ApplicationController
+   before_action :authenticate_user!
+
   def top
     @clothes = Clothe.all
   end
@@ -33,7 +35,6 @@ class ClothesController < ApplicationController
   def create
     clothe = current_user.clothes.build(clothe_params)
     tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split(',')
-    #clothe.image.attach(params[:clothe][:image])
     clothe.user_id = current_user.id
     if clothe.save
       clothe.save_clothe(tag_list)
@@ -45,14 +46,32 @@ class ClothesController < ApplicationController
   end
 
   def edit
-    @clothes = current_user.clothes.find(params[:id])
-    @tag_list = @post.tags.pluck(:tag_name).join(',')
+    @clothe = Clothe.find(params[:id])
+    @categories = Category.all
+    @sizes = Size.all
+    # @tag = Tag.where(id: @clothe.tag_ids)
+
+    tag = Tag.where(id: @clothe.tag_ids)
+    @tag_name = ""
+    tag.each do |t|
+      @tag_name += t.name + ", "
+    end
+    @tag_name = @tag_name.chomp(", ")
+    
+    # pp @tag_name
   end
 
   def update
-    clothe = Clothe.new(clothe_params)
-    clothe.update(clothe_params)
-    redirect_to clothe_path(cloth.id)
+    clothe = Clothe.find(params[:id])
+    tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split(',')
+    
+    if clothe.update(clothe_params)
+      clothe.save_clothe(tag_list)
+      redirect_to clothe_path(clothe.id)
+    else
+      flash.now[:alert] = '投稿に失敗しました'
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def seach
@@ -64,6 +83,7 @@ class ClothesController < ApplicationController
   private
   def clothe_params
     params.require(:clothe).permit(
+    :id,
     :category_id,
     :name,
     :introduction,

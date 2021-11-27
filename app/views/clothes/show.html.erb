@@ -10,7 +10,7 @@
     <div class="col-md-3">
       <%= form_with model:@clothe, local:true do |f| %>
         <div class="img_field">
-          <%= image_tag attachment_url(@clothe, :image, :fill, 270, 300, format: "jpg"), size:'270x300' %>
+          <%= image_tag attachment_url(@clothe, :image, :fill, 270, 300, format: "jpg"), size:'270x300', fallback: asset_path("no_image.png") %>
         </div>
       <% end %>
     </div>
@@ -48,9 +48,7 @@
   </div>
   <div class="row">
     <div class="col text-center">
-      <%= form_with model:@clothe, local:true do |f| %>
-        <%= f.submit "登録", class:"mx-5  btn btn-success",:size=>"30" %>
-      <% end %>
+      <%= link_to "編集する", edit_clothe_path(@clothe), data: {"turbolinks" => false}, class: "glyphicon glyphicon-pencil btn btn-success pull-right" %>
     </div>
   </div>
 </div>

@@ -17,7 +17,8 @@ class Clothe < ApplicationRecord
     new_tags = tag_list - current_tags
 
     old_tags.each do |old|
-      self.tag_maps.delete Tag.find_by(name: old)
+      delete_target = Tag.find_by(name: old)
+      TagMap.find_by(tag_id: delete_target.id, clothe_id: self.id).destroy
     end
 
     new_tags.each do |new|

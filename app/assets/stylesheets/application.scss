@@ -17,10 +17,18 @@
   @import 'font-awesome-sprockets';
   @import 'font-awesome';
 
-  header,footer {
+  header,footer, {
     font-family: 'Rampart One', cursive;
     background-color: #ffd900;
     color: #333;
+  }
+
+  .font{
+    font-family: 'Rampart One', cursive;
+  }
+
+  footer{
+    height: 50px;
   }
 
   h1{
@@ -37,6 +45,10 @@
     flex: 1;
   }
 
+  .layouts{
+    padding-bottom: 50px;
+  }
+
   ul {
     list-style: none;
   }
@@ -47,19 +59,19 @@
     }
   }
 
-@media screen and (max-width: 960px) {
-  header{
-    width: 100vh;
-  }
+  @media screen and (max-width: 960px) {
+    header{
+      width: 100vh;
+    }
 
-  .flex-column{
-    height: 102vh;
-  }
+    .flex-column{
+      height: 102vh;
+    }
 
-  footer{
-    width: 100vh;
+    footer{
+      width: 100vh;
+    }
   }
-}
 
 @media screen and (max-width: 480px) {
   .flex-column{
@@ -133,6 +145,14 @@
       height: 200px;
     }
   }
+
+  .top_image{
+    img{
+      width: 80px;
+      height: 100px;
+    }
+  }
+
 
   .nav-link{
     color: #000;
