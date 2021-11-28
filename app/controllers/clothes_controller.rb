@@ -21,9 +21,9 @@ class ClothesController < ApplicationController
       @clothes = Clothe.all.order(created_at: :desc)
     end
     @tag_list = Tag.all
-    @tops_clothes = Category.find(5).clothes
-    @outer_clothes = Category.find(7).clothes
-    @bottom_clothes = Category.find(8).clothes
+    @tops_clothes = Category.find_by(name: 'トップス').clothes
+    @outer_clothes = Category.find_by(name: 'アウター').clothes
+    @bottom_clothes = Category.find_by(name: 'ボトムス').clothes
     @clothe = current_user.clothes.new
   end
 
@@ -57,14 +57,14 @@ class ClothesController < ApplicationController
       @tag_name += t.name + ", "
     end
     @tag_name = @tag_name.chomp(", ")
-    
+
     # pp @tag_name
   end
 
   def update
     clothe = Clothe.find(params[:id])
     tag_list = params[:clothe][:tag_ids].delete(' ').delete('　').split(',')
-    
+
     if clothe.update(clothe_params)
       clothe.save_clothe(tag_list)
       redirect_to clothe_path(clothe.id)
