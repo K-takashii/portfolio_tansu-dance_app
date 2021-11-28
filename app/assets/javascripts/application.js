@@ -43,7 +43,7 @@ $(window).on('scroll', function() {
     var nextPage =  parseInt($('span.current').html())+1;
     $.ajax({
       type: 'GET',
-      url: `/categories/more?page=${nextPage}`,
+      url: '/categories/more?page=' + nextPage,
       dataType: 'script'
     }).done(function (res) {
       //console.log(res)
