@@ -5,7 +5,7 @@ class CreateClothes < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.string :name
       t.string :store_name
-      t.integer :si
+      t.integer :size_id
       t.timestamps
     end
   end
