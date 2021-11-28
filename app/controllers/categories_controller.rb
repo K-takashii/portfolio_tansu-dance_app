@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
    before_action :authenticate_user!
-  
+
   def index
-    pp params
+    # byebug
+    # pp params
     if params[:serch_word]
       @clothes = Clothe.left_joins(:tags).where("clothes.name like ? or tags.name like ?", "%#{params[:serch_word]}%", "%#{params[:serch_word]}%").page(params[:page]).per(9).distinct
       @category_title = params[:serch_word]
@@ -12,6 +13,8 @@ class CategoriesController < ApplicationController
       @category_title = "全アイテム"
       @categories = Category.all
       @clothes = Clothe.all.page(params[:page]).per(9)
+
+      # @clothes = Clothe.all
       @tag_list = Tag.all
     end
   end
@@ -30,5 +33,9 @@ class CategoriesController < ApplicationController
       @clothes = Clothe.where(category_id: @category).page(params[:page]).per(9)
       @tag_list = Tag.all
     end
+  end
+  def more
+    @page = params[:page]
+    @clothes = Clothe.all.page(params[:page]).per(9)
   end
 end

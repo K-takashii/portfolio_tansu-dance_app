@@ -131,6 +131,11 @@
   //   }
   // }
 
+  #text{
+    .field{
+      padding-bottom: 15px;
+    }
+  }
 
   .dresser{
     img{
@@ -194,156 +199,156 @@
     height: 170px;
   }
 
-.title {
-  text-align: center;
-  padding: 0.5% 2% 0.5% 2%;
+  .title {
+    text-align: center;
+    padding: 0.5% 2% 0.5% 2%;
+    }
+
+  .user-new-sub {
+    margin-left: 70px;
+    background-color: #DDDDDD;
+    text-align: center;
   }
 
-.user-new-sub {
-  margin-left: 70px;
-  background-color: #DDDDDD;
-  text-align: center;
-}
+  .user-already {
+    margin-left: 30px;
+    text-align: center;
+    background-color: #DDDDDD;
+    }
 
-.user-already {
-  margin-left: 30px;
-  text-align: center;
-  background-color: #DDDDDD;
+  .user-login-link {
+    margin-left: 55px;
+    font-size: 18px;
   }
 
-.user-login-link {
-  margin-left: 55px;
-  font-size: 18px;
-}
-
-.user-sign-up {
-  font-size: 20px;
-  font-weight: bold;
-  width: 70%;
-  height: 30%;
-  padding: 0
-}
-
-.user-session-form{
-  width: 70%;
-}
-.user-session-label{
-  width: 20%;
-}
-
-.user-login{
-  fontsize: 16px;
-  font-weight: bold;
-  width: 30%;
-}
-
-.user-session-link-title {
-  margin-left: 50px;
-  background-color: #DDDDDD;
-  text-align: center;
-}
-
-.user-session-link {
-  marfin-left: 55px;
-  text-align: center;
-}
-
-.tab{
-  display: flex;
-  flex-wrap: wrap;
-  float: left;
-}
-
-
-.drop{
-  text-align: right;
-  width: 10%;
-  margin: auto;
-}
-
-div#code{
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-div#dragarea{
-  width:100%;
-}
-
-div.dp{
-  width:100%;
-  height:130px;
-}
-
-div#drop1{
-  background-color:#ffff80;
-  width: 150px;
-  height: 180px;
-}
-
-div#drop2{
-  background-color:#ff80ff;
-  width: 150px;
-  height: 180px;
+  .user-sign-up {
+    font-size: 20px;
+    font-weight: bold;
+    width: 70%;
+    height: 30%;
+    padding: 0
   }
 
-div#drop2:after{
-  content:"";
-  display:block;
-  clear:left;
-}
-
-div#drop3{
-  background-color:#80ffff;
-  width: 150px;
-  height: 180px;
+  .user-session-form{
+    width: 70%;
+  }
+  .user-session-label{
+    width: 20%;
   }
 
-div#drop3:after{
-  content:"";
-  display:block;
-  clear:left;
-}
+  .user-login{
+    fontsize: 16px;
+    font-weight: bold;
+    width: 30%;
+  }
 
-.tab-group{
-  display: flex;
-  justify-content: center;
-}
+  .user-session-link-title {
+    margin-left: 50px;
+    background-color: #DDDDDD;
+    text-align: center;
+  }
 
-.tab{
-  flex-grow: 1;
-  padding:5px;
-  list-style:none;
-  border:solid 1px #89c7de;
-  text-align:center;
-  cursor:pointer;
-}
+  .user-session-link {
+    marfin-left: 55px;
+    text-align: center;
+  }
 
-.panel{
-  display:none;
-}
+  .tab{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+  }
 
-.tab.is-active{
-  background:#F00;
-  color:#FFF;
-  transition: all 0.2s ease-out;
-}
 
-.panel.is-show{
-  display:block;
-}
+  .drop{
+    text-align: right;
+    width: 10%;
+    margin: auto;
+  }
 
-.scroll{
-  display: flex;
-  overflow-x: scroll;
-}
+  div#code{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-nav.pagination {
-  display: none;
-}
+  div#dragarea{
+    width:100%;
+  }
 
-.scroll-list {
-  padding: 0;
-}
+  div.dp{
+    width:100%;
+    height:130px;
+  }
+
+  div#drop1{
+    background-color:#ffff80;
+    width: 150px;
+    height: 180px;
+  }
+
+  div#drop2{
+    background-color:#ff80ff;
+    width: 150px;
+    height: 180px;
+    }
+
+  div#drop2:after{
+    content:"";
+    display:block;
+    clear:left;
+  }
+
+  div#drop3{
+    background-color:#80ffff;
+    width: 150px;
+    height: 180px;
+    }
+
+  div#drop3:after{
+    content:"";
+    display:block;
+    clear:left;
+  }
+
+  .tab-group{
+    display: flex;
+    justify-content: center;
+  }
+
+  .tab{
+    flex-grow: 1;
+    padding:5px;
+    list-style:none;
+    border:solid 1px #89c7de;
+    text-align:center;
+    cursor:pointer;
+  }
+
+  .panel{
+    display:none;
+  }
+
+  .tab.is-active{
+    background:#F00;
+    color:#FFF;
+    transition: all 0.2s ease-out;
+  }
+
+  .panel.is-show{
+    display:block;
+  }
+
+  .scroll{
+    display: flex;
+    overflow-x: scroll;
+  }
+
+  nav.pagination {
+   display: none;
+  }
+
+  .scroll-list {
+    padding: 0;
+  }

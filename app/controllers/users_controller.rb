@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def update
     user = current_user
     user.update(user_params)
+    sign_in(user, bypass: true)
     redirect_to user_path(current_user)
   end
 

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :users, only:[:show, :edit, :update]
   resources :clothes
-  resources :categories, only:[:index,:show]
+  resources :categories, only:[:index,:show] do
+    collection do
+      get 'more'
+    end
+  end
   resources :tags do
     get 'clothes', to: 'clothes#search'
   end
