@@ -1,5 +1,4 @@
 <% clothes.each do |clothe| %>
-  <%# pp clothe %>
   <div class="card">
     <%= link_to clothe_path(clothe.id) do %>
       <%= attachment_image_tag clothe, :image,  fallback: "no_image" %><br>
@@ -8,7 +7,6 @@
       <h5 class="card-title"><%= clothe.name%></h5>
       <p class="card-text">
         <% clothe.tags.each do |tag| %>
-        <%#= link_to do %>
           <%= tag.name %><br>
         <% end %>
       </p>

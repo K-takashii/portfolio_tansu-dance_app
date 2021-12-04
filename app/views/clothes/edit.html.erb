@@ -16,32 +16,32 @@
     </div>
     <!--登録した情報-->
     <div class="col-5" id="text">
-        <div class="field">
-          ・服の名前:<%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-3" %>
-        </div>
-        <div class="field">
-          ・購入した店の名前:<%= f.text_field :store_name, :size=>"25", autofocus: true, placeholder: "購入した店の名前",class:"ml-3" %>
-        </div>
-        <div class="field">
-          ・サイズ:
-          <%= f.collection_select :size_id, @sizes, :id, :name, include_blank: "選択して下さい" %>
-        </div>
-        <div class="field">
-          ・カテゴリー:
-          <%=f.collection_select :category_id, @categories, :id, :name, include_blank: "選択して下さい" %>
-        </div>
-        <div class="field">
-          ・タグ:
-          <%= f.text_field :tag_ids, value: @tag_name, :size=>"20", id:'tag_ids', placeholder: "複数つけるには','で区切ってください。" %>
-        </div>
-        <div class="field">
-          ・メモ<br>
-           <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-3"  %>
-        </div>
-        <div class="col text-center">
-          <%= f.submit "変更を保存", class:"glyphicon glyphicon-pencil btn btn-success pull-right" %>
-        </div>
+      <div class="field">
+        ・服の名前:<%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "服の名前",class:"ml-3" %>
+      </div>
+      <div class="field">
+        ・購入した店の名前:<%= f.text_field :store_name, :size=>"25", autofocus: true, placeholder: "購入した店の名前",class:"ml-3" %>
+      </div>
+      <div class="field">
+        ・サイズ:
+        <%= f.collection_select :size_id, @sizes, :id, :name, include_blank: "選択して下さい" %>
+      </div>
+      <div class="field">
+        ・カテゴリー:
+        <%=f.collection_select :category_id, @categories, :id, :name, include_blank: "選択して下さい" %>
+      </div>
+      <div class="field">
+        ・タグ:
+        <%= f.text_field :tag_ids, value: @tag_name, :size=>"20", id:'tag_ids', placeholder: "複数つけるには','で区切ってください。" %>
+      </div>
+      <div class="field">
+        ・メモ<br>
+         <%= f.text_area :introduction, :size=>"60", autofocus: true,class:"ml-3"  %>
+      </div>
+      <div class="col text-center">
+        <%= f.submit "変更を保存", class:"glyphicon glyphicon-pencil btn btn-success pull-right" %>
+      </div>
       <% end %>
-    </div>
-  </div>
+    </div><!-- /col -->
+  </div><!-- /row -->
 </div>
